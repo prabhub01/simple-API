@@ -25,4 +25,14 @@ class Users extends Controller
         }
 
     }
+
+    function update(Request $req)
+    {
+        $u = User::find($req->id);
+        $u->email=$req->email;
+        if($u->save())
+        {
+            return ["Result"=>"Success","msg"=>"data updated"];
+        }
+    }
 }
