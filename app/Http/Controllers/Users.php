@@ -11,4 +11,18 @@ class Users extends Controller
     {
         return User::all();
     }
+
+    function insert(Request $req)
+    {
+        $u = New User;
+        $u->name=$req->name;
+        $u->email=$req->email;
+        $u->address=$req->address;
+        
+        if($u->save())
+        {
+            return "New User Added !";
+        }
+
+    }
 }
